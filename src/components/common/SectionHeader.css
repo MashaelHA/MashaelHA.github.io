@@ -1,0 +1,28 @@
+.section-header {
+  margin-block-end: 48px;
+  max-width: 720px;
+}
+
+.section-header__kicker {
+  display: inline-block;
+  font-family: var(--font-latin);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  margin-block-end: 10px;
+}
+
+html[lang='ar'] .section-header__kicker {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+}
+
+.section-header__title {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -0.02em;
+}
+
+html[lang='ar'] .section-header__title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}

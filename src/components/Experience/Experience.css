@@ -1,0 +1,148 @@
+.experience__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.exp-card {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  padding: 32px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.exp-card__org {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.exp-card__org-name {
+  font-size: 1.2rem;
+}
+
+.exp-card__via {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+
+.exp-card__roles {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-role {
+  position: relative;
+  padding-inline-start: 24px;
+  padding-block-end: 28px;
+  border-inline-start: 2px solid var(--line);
+}
+.exp-role:last-child {
+  padding-block-end: 0;
+}
+.exp-role::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: -7px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--accent);
+}
+
+.exp-role__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 6px 16px;
+  margin-block-end: 12px;
+}
+
+.exp-role__title {
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.exp-role__badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.exp-role__period {
+  font-size: 0.88rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.exp-role__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+}
+
+.exp-role__bullets li {
+  position: relative;
+  padding-inline-start: 18px;
+}
+.exp-role__bullets li::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0.75em;
+  width: 7px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.exp-role__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.exp-role__cert {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-bottom: 1px solid transparent;
+}
+.exp-role__cert:hover {
+  border-bottom-color: currentColor;
+}
+
+@media (max-width: 860px) {
+  .exp-card {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px 20px;
+  }
+  .exp-card__org {
+    flex-direction: row;
+    align-items: center;
+  }
+}

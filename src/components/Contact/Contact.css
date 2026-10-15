@@ -1,0 +1,115 @@
+.contact {
+  padding-block-start: 24px;
+}
+
+.contact__panel {
+  background: var(--navy);
+  color: #ffffff;
+  border-radius: 28px;
+  padding: clamp(32px, 6vw, 64px);
+}
+
+.contact__kicker {
+  color: var(--pink-light);
+  font-size: 0.85rem;
+}
+
+.contact__title {
+  margin-top: 12px;
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  letter-spacing: -0.025em;
+  max-width: 16ch;
+}
+html[lang='ar'] .contact__title {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+.contact__text {
+  margin-top: 16px;
+  max-width: 56ch;
+  color: rgb(255 255 255 / 0.72);
+}
+
+.contact__email {
+  margin-top: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 24px;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--navy);
+  font-family: var(--font-latin);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  max-width: 100%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.contact__email span {
+  overflow-wrap: anywhere;
+}
+.contact__email:hover {
+  transform: translateY(-2px);
+  background: var(--pink);
+  color: #ffffff;
+}
+
+.contact__channels {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.contact__channels a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgb(255 255 255 / 0.16);
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.contact__channels a:hover {
+  border-color: rgb(255 255 255 / 0.5);
+  background: rgb(255 255 255 / 0.04);
+}
+
+.contact__channel-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+[dir='rtl'] .contact__channel-text small {
+  text-align: right;
+}
+.contact__channel-text small {
+  color: rgb(255 255 255 / 0.6);
+  font-family: var(--font-latin);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.contact__arrow {
+  opacity: 0.6;
+}
+
+@media (max-width: 560px) {
+  .contact__panel {
+    padding: 28px 20px;
+  }
+  .contact__email {
+    padding: 14px 18px;
+    font-size: 0.88rem;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 760px) {
+  .contact__channels {
+    grid-template-columns: 1fr;
+  }
+}

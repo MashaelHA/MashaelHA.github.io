@@ -1,0 +1,212 @@
+/* ---------- Design tokens ---------- */
+:root {
+  /* Brand palette — formal navy & slate with a touch of pink */
+  --navy: #0f1b2d;
+  --slate: #2a3b5c;
+  --steel: #8ea3c0;
+  --pink: #d6457a;
+  --pink-light: #f4b6cb;
+
+  /* Legacy aliases used by decorative elements */
+  --coral: var(--pink);
+  --amber: var(--pink-light);
+  --sage: var(--steel);
+  --plum: var(--slate);
+
+  --bg: #f7f8fa;
+  --bg-alt: #eef1f5;
+  --surface: #ffffff;
+  --text: #0f1b2d;
+  --muted: #5a6475;
+  --line: #e1e5eb;
+  --accent: #c9386d;
+  --accent-soft: #fbe7ef;
+  --chip: #f1f3f6;
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow: 0 1px 2px rgb(15 27 45 / 0.04), 0 8px 28px rgb(15 27 45 / 0.07);
+  --max: 1120px;
+  --nav-h: 68px;
+
+  --font-latin: 'Space Grotesk', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  --font: var(--font-latin);
+}
+
+[data-theme='dark'] {
+  --navy: #13213a;
+  --bg: #0b1220;
+  --bg-alt: #0f1828;
+  --surface: #131d2e;
+  --text: #e8ecf2;
+  --muted: #98a2b3;
+  --line: #233047;
+  --accent: #f07aa5;
+  --accent-soft: #3a1f2e;
+  --chip: #18233a;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px rgb(0 0 0 / 0.3);
+}
+
+html[lang='ar'] {
+  --font: var(--font-arabic);
+}
+
+/* ---------- Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--nav-h) + 12px);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  padding-block: 96px;
+}
+
+.section--alt {
+  background: var(--bg-alt);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--chip);
+  border: 1px solid var(--line);
+  font-size: 0.8rem;
+  font-family: var(--font-latin);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn--primary {
+  background: var(--text);
+  color: var(--bg);
+}
+.btn--ghost {
+  border-color: var(--line);
+  background: var(--surface);
+}
+.btn--ghost:hover {
+  border-color: var(--text);
+}
+
+/* Flip directional icons in RTL */
+[dir='rtl'] .flip-rtl {
+  transform: scaleX(-1);
+}
+
+/* ---------- Reveal animation ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .section {
+    padding-block: 72px;
+  }
+  .container {
+    padding-inline: 16px;
+  }
+}
